@@ -2,6 +2,8 @@ package com.afif.test.dealjavatechnicaltest.data.firebase
 
 import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QuerySnapshot
+import kotlinx.coroutines.tasks.await
 
 class FirebaseClient {
 
@@ -12,7 +14,8 @@ class FirebaseClient {
     }
 
     fun updateIngredient(ingredient: IngredientEntity) {
-        firestore.collection("ingredientEntity").document(ingredient.id.toString()).update("amount", ingredient.amount)
+        firestore.collection("ingredientEntity").document(ingredient.id.toString())
+            .update("amount", ingredient.amount)
     }
 
     fun getIngredientById(id: Int, callback: (IngredientEntity?) -> Unit) {
@@ -29,5 +32,14 @@ class FirebaseClient {
                 Log.w("FirebaseClient", "Error getting document", exception)
                 callback(null)
             }
+    }
+
+    suspend fun getIngredients(): QuerySnapshot {
+        return firestore.collection("ingredientEntity")
+            .get().await()
+    }
+
+    fun addRecipe(recipe: RecipeEntity) {
+        firestore.collection("recipeEntity")
     }
 }

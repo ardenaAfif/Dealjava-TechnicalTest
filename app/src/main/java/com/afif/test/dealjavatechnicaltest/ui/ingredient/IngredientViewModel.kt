@@ -41,4 +41,17 @@ class IngredientViewModel @Inject constructor(
             }
         }
     }
+
+    fun getIngredient() {
+        viewModelScope.launch {
+            _addIngredient.value = Resource.Loading()
+            try {
+                val result = firebaseClient.getIngredients()
+                val ingredients = result.toObjects(IngredientEntity::class.java)
+                _addIngredient.value = Resource.Success(ingredients)
+            } catch (e: Exception) {
+                _addIngredient.value = Resource.Error(e.message.toString())
+            }
+        }
+    }
 }
