@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Dealjava Technical Test</string>
+    <string name="app_name">Secret Recipe</string>
     <string name="ingredients">Ingredients</string>
     <string name="combination_recipe">Combination Recipe</string>
     <string name="recipe_library">Recipe Library</string>
