@@ -1,10 +1,8 @@
-package com.afif.test.dealjavatechnicaltest.ui.ingredient
+package com.afif.test.dealjavatechnicaltest.ui.history
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.afif.test.dealjavatechnicaltest.R
 
 class RecipeLibraryActivity : AppCompatActivity() {

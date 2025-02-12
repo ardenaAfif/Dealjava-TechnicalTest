@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Box Ingredient 1", 
+    "lottieFile": "gift4.lottie"
+  },
+  {
+    "name": "Box Ingredient 2", 
+    "lottieFile": "gift3.lottie"
+  },
+  {
+    "name": "Box Ingredient 3", 
+    "lottieFile": "gift1.lottie"
+  },
+  {
+    "name": "Box Ingredient 4", 
+    "lottieFile": "gift2.lottie" 
+  },
+  {
+    "name": "Box Ingredient 5", 
+    "lottieFile": "gift1.lottie" 
+  },
+  {
+    "name": "Box Ingredient 6", 
+    "lottieFile": "gift3.lottie"
+  }
+]

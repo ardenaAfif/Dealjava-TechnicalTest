@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -40,6 +41,13 @@ android {
 
 dependencies {
 
+    // json
+    implementation("com.google.code.gson:gson:2.10.1")
+
+    // Firebase
+    implementation(libs.firebase.storage)
+    implementation(libs.firebase.firestore)
+
     // Lottie
     implementation(libs.lottiefiles.dotlottie.android)
 
@@ -48,6 +56,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

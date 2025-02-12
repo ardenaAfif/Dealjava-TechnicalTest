@@ -17,6 +17,7 @@ import com.lottiefiles.dotlottie.core.util.DotLottieSource
 class SplashActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySplashBinding
+    private var runnable: Runnable? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,12 +64,11 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun navigateToMainActivity() {
+        runnable = Runnable {
+
+        }
         Handler().postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
-//            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
         }, 200)
-        finish()
     }
 //    private fun lottieSetup() {
 //        val config = Config.Builder()

@@ -4,10 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.afif.test.dealjavatechnicaltest.databinding.ActivityMainBinding
-import com.afif.test.dealjavatechnicaltest.ui.ingredient.RecipeLibraryActivity
+import com.afif.test.dealjavatechnicaltest.ui.history.RecipeLibraryActivity
+import com.afif.test.dealjavatechnicaltest.ui.ingredient.IngredientActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,6 +23,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun menuSetup() {
         binding.apply {
+            cardIngredient.setOnClickListener {
+                val intent = Intent(this@MainActivity, IngredientActivity::class.java)
+                startActivity(intent)
+            }
+//            cardCombine.setOnClickListener {
+//                val intent = Intent(this@MainActivity, CombineRecipeActivity::class.java)
+//            }
             cardHistory.setOnClickListener {
                 val intent = Intent(this@MainActivity, RecipeLibraryActivity::class.java)
                 startActivity(intent)
