@@ -6,8 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.afif.test.dealjavatechnicaltest.adapter.IngredientBoxAdapter
-import com.afif.test.dealjavatechnicaltest.data.Ingredient
-import com.afif.test.dealjavatechnicaltest.data.IngredientBox
+import com.afif.test.dealjavatechnicaltest.data.json.IngredientBox
 import com.afif.test.dealjavatechnicaltest.databinding.ActivityIngredientBoxBinding
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken

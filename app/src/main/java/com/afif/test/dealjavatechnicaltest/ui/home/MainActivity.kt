@@ -1,4 +1,4 @@
-package com.afif.test.dealjavatechnicaltest
+package com.afif.test.dealjavatechnicaltest.ui.home
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.afif.test.dealjavatechnicaltest.databinding.ActivityMainBinding
 import com.afif.test.dealjavatechnicaltest.ui.history.RecipeLibraryActivity
 import com.afif.test.dealjavatechnicaltest.ui.ingredient.IngredientBoxActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

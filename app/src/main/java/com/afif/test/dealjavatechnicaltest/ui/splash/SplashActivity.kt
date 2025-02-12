@@ -1,13 +1,9 @@
 package com.afif.test.dealjavatechnicaltest.ui.splash
 
-import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.os.Looper
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.afif.test.dealjavatechnicaltest.MainActivity
 import com.afif.test.dealjavatechnicaltest.databinding.ActivitySplashBinding
 import com.dotlottie.dlplayer.Mode
 import com.lottiefiles.dotlottie.core.model.Config

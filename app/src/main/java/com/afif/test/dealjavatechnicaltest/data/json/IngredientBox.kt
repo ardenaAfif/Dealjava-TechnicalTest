@@ -1,6 +1,4 @@
-package com.afif.test.dealjavatechnicaltest.data
-
-import com.lottiefiles.dotlottie.core.drawable.DotLottieDrawable
+package com.afif.test.dealjavatechnicaltest.data.json
 
 data class IngredientBox (
     val name: String,

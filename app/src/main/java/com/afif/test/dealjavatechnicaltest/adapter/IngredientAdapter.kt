@@ -4,11 +4,11 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.afif.test.dealjavatechnicaltest.data.Ingredient
+import com.afif.test.dealjavatechnicaltest.data.json.Ingredient
 import com.afif.test.dealjavatechnicaltest.databinding.ItemIngredientBinding
 import com.bumptech.glide.Glide
 
-class IngredientAdapter(private val context: Context, private val ingredient: List<Ingredient>) :
+class IngredientAdapter(private val context: Context, val ingredient: List<Ingredient>) :
     RecyclerView.Adapter<IngredientAdapter.IngredientViewHolder>() {
 
     inner class IngredientViewHolder(private val binding: ItemIngredientBinding) :
