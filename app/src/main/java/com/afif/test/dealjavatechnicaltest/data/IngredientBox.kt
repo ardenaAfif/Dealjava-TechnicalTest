@@ -4,5 +4,6 @@ import com.lottiefiles.dotlottie.core.drawable.DotLottieDrawable
 
 data class IngredientBox (
     val name: String,
-    val lottieFile: String
+    val lottieFile: String,
+    val ingredient: List<Ingredient>
 )

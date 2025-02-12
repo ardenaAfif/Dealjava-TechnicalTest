@@ -5,13 +5,13 @@
     android:background="@drawable/bg_splash"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ingredient.IngredientActivity">
+    tools:context=".ui.ingredient.IngredientBoxActivity">
 
     <TextView
         android:id="@+id/bgHome"
         android:layout_width="wrap_content"
         android:layout_height="180dp"
-        android:background="@drawable/illustration_history"
+        android:background="@drawable/illustration_ingredient"
         android:text="@string/ingredients"
         android:gravity="bottom|center"
         android:fontFamily="@font/roboto_medium"
@@ -26,10 +26,16 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="14dp"
-        tools:listitem="@layout/item_ingredient"
+        tools:listitem="@layout/item_ingredient_box"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bgHome" />
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

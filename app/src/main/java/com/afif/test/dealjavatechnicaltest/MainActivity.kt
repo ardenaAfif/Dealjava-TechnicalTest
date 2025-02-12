@@ -6,7 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.afif.test.dealjavatechnicaltest.databinding.ActivityMainBinding
 import com.afif.test.dealjavatechnicaltest.ui.history.RecipeLibraryActivity
-import com.afif.test.dealjavatechnicaltest.ui.ingredient.IngredientActivity
+import com.afif.test.dealjavatechnicaltest.ui.ingredient.IngredientBoxActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     private fun menuSetup() {
         binding.apply {
             cardIngredient.setOnClickListener {
-                val intent = Intent(this@MainActivity, IngredientActivity::class.java)
+                val intent = Intent(this@MainActivity, IngredientBoxActivity::class.java)
                 startActivity(intent)
             }
 //            cardCombine.setOnClickListener {

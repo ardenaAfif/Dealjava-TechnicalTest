@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.afif.test.dealjavatechnicaltest" />
+                  <option name="mobileSdkAppId" value="1:326193139308:android:d1e01f4a0371923f041249" />
+                  <option name="projectId" value="tajwidify-fadd5" />
+                  <option name="projectNumber" value="326193139308" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
