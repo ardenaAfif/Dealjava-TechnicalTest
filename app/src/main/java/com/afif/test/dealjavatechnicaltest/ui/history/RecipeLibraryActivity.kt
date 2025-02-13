@@ -12,6 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.afif.test.dealjavatechnicaltest.adapter.RecipeLibraryAdapter
 import com.afif.test.dealjavatechnicaltest.databinding.ActivityRecipeLibraryBinding
 import com.afif.test.dealjavatechnicaltest.utils.Resource
+import com.dotlottie.dlplayer.Mode
+import com.lottiefiles.dotlottie.core.model.Config
+import com.lottiefiles.dotlottie.core.util.DotLottieSource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
@@ -43,8 +46,12 @@ class RecipeLibraryActivity : AppCompatActivity() {
                     is Resource.Success -> {
                         hideLoading()
                         val recipes = resource.data ?: emptyList()
-                        recipeLibraryAdapter.differ.submitList(recipes)
-                        Log.d(">>Recipe", "Recipes: $recipes")
+                        if (recipes.isEmpty()) {
+                            noData()
+                        } else {
+                            recipeLibraryAdapter.differ.submitList(recipes)
+                            Log.d(">>Recipe", "Recipes: $recipes")
+                        }
                     }
                     is Resource.Error -> {
                         hideLoading()
@@ -68,6 +75,20 @@ class RecipeLibraryActivity : AppCompatActivity() {
         binding.apply {
             shimmerFrame.visibility = View.VISIBLE
             shimmerFrame.startShimmer()
+        }
+    }
+
+    private fun noData() {
+        binding.apply {
+            lottieNoData.visibility = View.VISIBLE
+            val config = Config.Builder()
+                .autoplay(true)
+                .speed(1f)
+                .loop(true)
+                .source(DotLottieSource.Asset("lottie_no_data.json"))
+                .playMode(Mode.FORWARD)
+                .build()
+            binding.lottieNoData.load(config)
         }
     }
 

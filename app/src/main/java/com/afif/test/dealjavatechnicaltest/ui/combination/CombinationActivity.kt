@@ -115,13 +115,15 @@ class CombinationActivity : AppCompatActivity() {
                         hideLoading()
                         resource.data?.let { ingredients ->
                             // Update the adapter with the new list of ingredients
-                            ingredientCombineAdapter = IngredientCombineAdapter(
-                                this@CombinationActivity,
-                                ingredients
-                            ) { selectedIngredient ->
-                                updateSelectedIngredients(selectedIngredient)
+                            hideLoading()
+                            val ingredientData = resource.data ?: emptyList()
+
+                            if (ingredientData.isEmpty()) {
+                                noData()
+                            } else {
+                                showData(ingredientData)
                             }
-                            binding.rvIngredientCombination.adapter = ingredientCombineAdapter
+
                             Log.d(">>Ingredients", ingredients.toString())
                         }
                     }
@@ -241,6 +243,7 @@ class CombinationActivity : AppCompatActivity() {
 
     private fun showLoading() {
         binding.apply {
+            binding.cardCombineIngredient.visibility = View.GONE
             shimmerFrame.visibility = View.VISIBLE
             shimmerFrame.startShimmer()
         }
@@ -248,8 +251,39 @@ class CombinationActivity : AppCompatActivity() {
 
     private fun hideLoading() {
         binding.apply {
+            binding.cardCombineIngredient.visibility = View.VISIBLE
             shimmerFrame.stopShimmer()
             shimmerFrame.visibility = View.GONE
+        }
+    }
+
+    private fun showData(ingredients: List<IngredientEntity>) {
+        ingredientCombineAdapter = IngredientCombineAdapter(
+            this@CombinationActivity,
+            ingredients
+        ) { selectedIngredient ->
+            updateSelectedIngredients(selectedIngredient)
+        }
+        binding.rvIngredientCombination.adapter = ingredientCombineAdapter
+
+        binding.apply {
+            rvIngredientCombination.visibility = View.VISIBLE
+            lottieNoData.visibility = View.GONE // Sembunyikan animasi "No Data" jika ada data
+        }
+    }
+
+    private fun noData() {
+        binding.apply {
+            lottieNoData.visibility = View.VISIBLE
+            val config = Config.Builder()
+                .autoplay(true)
+                .speed(1f)
+                .loop(true)
+                .source(DotLottieSource.Asset("lottie_no_data.json"))
+                .playMode(Mode.FORWARD)
+                .build()
+            binding.lottieNoData.load(config)
+            binding.cardCombineIngredient.visibility = View.GONE
         }
     }
 

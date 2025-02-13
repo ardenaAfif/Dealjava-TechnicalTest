@@ -54,6 +54,17 @@
         app:layout_constraintTop_toBottomOf="@+id/bgHome"
         tools:listitem="@layout/item_ingredient" />
 
+    <com.lottiefiles.dotlottie.core.widget.DotLottieAnimation
+        android:id="@+id/lottieNoData"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bgHome" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardCombineIngredient"
         android:layout_width="match_parent"
