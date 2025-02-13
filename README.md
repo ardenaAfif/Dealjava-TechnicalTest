@@ -1,7 +1,4 @@
-## Dealjava Technical Test
-
 <h1 align="center">
-  <img src="logo.png" width="250"> <br>
   Dealjava Technical Test - Cooking Game
 </h1>
 
@@ -18,7 +15,7 @@ Aplikasi Android yang dirancang dengan fitur gamifikasi interaktif. Aplikasi ini
     * Pengguna dapat menggabungkan dua Kartu Bahan untuk mencoba membuka Resep.
     * Kombinasi yang gagal mengakibatkan hilangnya kartu bahan yang digunakan.
     * Kombinasi yang berhasil membuka Resep dan memberikan Kartu Makanan (Food Card).
-    * Resep yang telah dibuka akan tersimpan permanen di Perpustakaan Resep.
+    * Resep yang telah dibuka akan tersimpan permanen di Recipe Library.
 
 3. **Recipe Library:**
     * Menyimpan semua resep yang berhasil dibuka.
@@ -33,14 +30,14 @@ Aplikasi Android yang dirancang dengan fitur gamifikasi interaktif. Aplikasi ini
 Berikut adalah beberapa screenshot dari aplikasi:
 
 <div style="display: flex; justify-content: space-between;">
-    <img src="screenshot1.png" width="200">
-    <img src="screenshot2.png" width="200">
-    <img src="screenshot3.png" width="200">
+    <img src="https://github.com/ardenaAfif/Dealjava-TechnicalTest/blob/master/assets/home.jpg" width="200">
+    <img src="https://github.com/ardenaAfif/Dealjava-TechnicalTest/blob/master/assets/success.jpg" width="200">
+    <img src="https://github.com/ardenaAfif/Dealjava-TechnicalTest/blob/master/assets/combine.jpg" width="200">
 </div>
 
 <div style="display: flex; justify-content: space-between;">
-    <img src="screenshot4.png" width="200">
-    <img src="screenshot5.png" width="200">
+    <img src="https://github.com/ardenaAfif/Dealjava-TechnicalTest/blob/master/assets/ingredient.jpg" width="200">
+    <img src="https://github.com/ardenaAfif/Dealjava-TechnicalTest/blob/master/assets/open%20box.jpg" width="200">
 </div>
 
 
