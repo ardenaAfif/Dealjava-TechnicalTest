@@ -48,4 +48,9 @@ class FirebaseClient {
                 Log.e("FirebaseClient", "Error adding recipe", e)
             }
     }
+
+    suspend fun getRecipes(): QuerySnapshot {
+        return firestore.collection("recipeEntity")
+            .get().await()
+    }
 }
