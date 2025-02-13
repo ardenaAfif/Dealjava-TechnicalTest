@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.afif.test.dealjavatechnicaltest.R
 import com.afif.test.dealjavatechnicaltest.data.firebase.IngredientEntity
 import com.afif.test.dealjavatechnicaltest.databinding.ItemIngredientBinding
 import com.afif.test.dealjavatechnicaltest.databinding.ItemIngredientBoxBinding
@@ -11,8 +12,11 @@ import com.bumptech.glide.Glide
 
 class IngredientCombineAdapter(
     private val context: Context,
-    private val ingredients: List<IngredientEntity>
+    private val ingredients: List<IngredientEntity>,
+    private val onItemSelected: (IngredientEntity) -> Unit
 ) : RecyclerView.Adapter<IngredientCombineAdapter.IngredientCombineViewHolder>() {
+
+    private val selectedItems = mutableSetOf<IngredientEntity>()
 
     inner class IngredientCombineViewHolder(private val binding: ItemIngredientBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -23,6 +27,11 @@ class IngredientCombineAdapter(
                     .load(ingredient.image)
                     .centerCrop()
                     .into(ivIngredient)
+
+                root.setOnClickListener {
+                    onItemSelected(ingredient)
+                }
+
             }
         }
     }
@@ -44,5 +53,13 @@ class IngredientCombineAdapter(
 
     override fun getItemCount(): Int {
         return ingredients.size
+    }
+
+    fun getSelectedItems(): List<IngredientEntity> {
+        return selectedItems.toList()
+    }
+
+    fun removeItem(ingredient: IngredientEntity) {
+
     }
 }

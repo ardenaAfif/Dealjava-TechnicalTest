@@ -14,6 +14,9 @@
         android:theme="@style/Theme.DealjavaTechnicalTest"
         tools:targetApi="31">
         <activity
+            android:name=".ui.combination.CombinationDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.combination.CombinationActivity"
             android:exported="false" />
         <activity

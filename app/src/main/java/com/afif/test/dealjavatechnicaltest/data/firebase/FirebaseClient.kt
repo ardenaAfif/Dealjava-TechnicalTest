@@ -40,6 +40,12 @@ class FirebaseClient {
     }
 
     fun addRecipe(recipe: RecipeEntity) {
-        firestore.collection("recipeEntity")
+        firestore.collection("recipeEntity").document(recipe.id.toString()).set(recipe)
+            .addOnSuccessListener {
+                Log.d("FirebaseClient", "Recipe added successfully")
+            }
+            .addOnFailureListener { e ->
+                Log.e("FirebaseClient", "Error adding recipe", e)
+            }
     }
 }

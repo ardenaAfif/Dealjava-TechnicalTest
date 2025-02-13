@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "name": "Ayam Bakar",
+    "description": "Ayam yang dibakar dengan bumbu khas, memberikan rasa yang lezat dan aroma yang menggugah selera.",
+    "ingredients": [
+      {
+        "id": 4,
+        "name": "Ayam",
+        "image": "https://static.chickin.id/blog/wp-content/uploads/2024/11/Rekomendasi-Standar-Ayam-Potong-Untuk-Fried-Chicken.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Bawang Putih",
+        "image": "https://images.tokopedia.net/img/cache/700/product-1/2020/7/1/54165757/54165757_ea0277da-c336-4952-9392-42969a4859c7_700_700"
+      }
+    ],
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS70yVbmgNdcrIKD3rzhYxDQZpB3o2BSIaOA&s"
+  },
+  {
+    "id": 2,
+    "name": "Sop Tomat",
+    "description": "Sop segar yang terbuat dari tomat dan bumbu rempah, cocok untuk dinikmati saat cuaca dingin.",
+    "ingredients": [
+      {
+        "id": 3,
+        "name": "Tomat",
+        "image": "https://res.cloudinary.com/dk0z4ums3/image/upload/v1629681328/attached_image/9-manfaat-tomat-buah-yang-disangka-sayur.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Bawang Putih",
+        "image": "https://images.tokopedia.net/img/cache/700/product-1/2020/7/1/54165757/54165757_ea0277da-c336-4952-9392-42969a4859c7_700_700"
+      }
+    ],
+    "image": "https://www.masakapahariini.com/wp-content/uploads/2019/06/sup-tomat-daging-asap.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Tahu Tempe Goreng",
+    "description": "Kombinasi tahu dan tempe yang digoreng renyah, disajikan dengan sambal.",
+    "ingredients": [
+      {
+        "id": 14,
+        "name": "Tahu",
+        "image": "https://res.cloudinary.com/dk0z4ums3/image/upload/v1728951589/attached_image/tahu-putih-inilah-ragam-manfaat-dan-cara-mengolahnya.jpg"
+      },
+      {
+        "id": 15,
+        "name": "Tempe",
+        "image": "https://dev.nutriflakes.id/uploads/2023/12/cara-mengolah-tempe-untuk-asam-lambung.webp"
+      }
+    ],
+    "image": "https://cdn1-production-images-kly.akamaized.net/XPjNe-hM9LF9x55guFPn2LEqUXQ=/1200x900/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3357504/original/053818600_1611425338-Saji_1.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Nasi Goreng",
+    "description": "Nasi yang digoreng dengan bumbu dan bahan tambahan, sangat populer di Indonesia.",
+    "ingredients": [
+      {
+        "id": 23,
+        "name": "Nasi",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Nasi_dibentuk_bulat.jpg/800px-Nasi_dibentuk_bulat.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Bawang Putih",
+        "image": "https://images.tokopedia.net/img/cache/700/product-1/2020/7/1/54165757/54165757_ea0277da-c336-4952-9392-42969a4859c7_700_700"
+      }
+    ],
+    "image": "https://cdn1-production-images-kly.akamaized.net/LDRjBxjUH3gyrzEAUFrCi_XisTs=/0x148:1920x1230/800x450/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3093328/original/069244600_1585909700-fried-2509089_1920.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Sayur Bayam Tumis",
+    "description": "Sayur bayam yang ditumis dengan bawang dan bumbu, sehat dan lezat.",
+    "ingredients": [
+      {
+        "id": 16,
+        "name": "Sayur Bayam",
+        "image": "https://images.tokopedia.net/img/cache/500-square/product-1/2020/5/2/8187553/8187553_73f4b8c8-4858-41f6-9ddc-ec4e451d4761_1080_1080.jpg"
+      },
+      {
+        "id": 1,
+        "name": "Bawang Merah",
+        "image": "https://asset-a.grid.id/crop/0x0:0x0/700x465/photo/2019/09/27/3163718721.jpg"
+      }
+    ],
+    "image": "https://img.kurio.network/FnRZ04iY18q6h7oJzzZDFZOD5Zk=/1200x1200/filters:quality(80)/https://kurio-img.kurioapps.com/21/04/07/2ab69e8a-370d-460a-89ac-0efadafee196.jpe"
+  },
+  {
+    "id": 6,
+    "name": "Ikan Bakar",
+    "description": "Ikan yang dibakar dengan bumbu rempah, memberikan rasa yang khas.",
+    "ingredients": [
+      {
+        "id": 2,
+        "name": "Bawang Putih",
+        "image": "https://images.tokopedia.net/img/cache/700/product-1/2020/7/1/54165757/54165757_ea0277da-c336-4952-9392-42969a4859c7_700_700"
+      },
+      {
+        "id": 6,
+        "name": "Ikan",
+        "image": "https://cahayameat.com/wp-content/uploads/2023/07/slide-2.png"
+      }
+    ],
+    "image": "https://awsimages.detik.net.id/community/media/visual/2022/04/20/resep-gurame-bakar-bumbu-kecap-cabe_43.jpeg?w=650"
+  },
+  {
+    "id": 7,
+    "name": "Pasta Saus Tomat",
+    "description": "Pasta yang disajikan dengan saus tomat segar, cocok untuk makan siang.",
+    "ingredients": [
+      {
+        "id": 21,
+        "name": "Saus Tomat",
+        "image": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/catalog-image/MTA-10880968/abc_abc_tomat_335_ml_-_saus_tomat_full02_p5a2mz72.jpeg"
+      },
+      {
+        "id": 22,
+        "name": "Pasta",
+        "image": "https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/658A0A74-039A-487C-A07A-CAAF61B4615D/Derivates/A230DF28-60DF-429D-ABDA-96ED64E9EE10.jpg"
+      }
+    ],
+    "image": "https://awsimages.detik.net.id/community/media/visual/2022/02/22/resep-spaghetti-saus-tomat-sosis_43.jpeg?w=1200"
+  },
+  {
+    "id": 8,
+    "name": "Roti Bakar Keju",
+    "description": "Roti yang dipanggang dengan keju leleh, sempurna untuk sarapan.",
+    "ingredients": [
+      {
+        "id": 24,
+        "name": "Roti",
+        "image": "https://i0.wp.com/www.tokomesin.com/wp-content/uploads/2017/10/roti-tawar2-scaled.jpg?fit=800%2C450&ssl=1"
+      },
+      {
+        "id": 25,
+        "name": "Keju",
+        "image": "https://res.cloudinary.com/dk0z4ums3/image/upload/v1621838354/attached_image/manfaat-keju-yang-sayang-untuk-dilewatkan.jpg"
+      }
+    ],
+    "image": "https://www.dapurkobe.co.id/wp-content/uploads/roti-bakar-keju-milky-step5.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Telur Dadar",
+    "description": "Telur yang dikocok dan digoreng, bisa ditambahkan sayuran.",
+    "ingredients": [
+      {
+        "id": 26,
+        "name": "Telur",
+        "image": "https://res.cloudinary.com/dk0z4ums3/image/upload/v1592885787/attached_image/inilah-manfaat-telur-dan-cara-menyimpannya.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Bawang Putih",
+        "image": "https://images.tokopedia.net/img/cache/700/product-1/2020/7/1/54165757/54165757_ea0277da-c336-4952-9392-42969a4859c7_700_700"
+      }
+    ],
+    "image": "https://cdn0-production-images-kly.akamaized.net/nRYPpeXvlh6yqJChKJSaMBh130o=/0x282:5928x3623/1200x675/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2843447/original/098533600_1562138068-shutterstock_1335756413.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Cokelat Kismis",
+    "description": "Cokelat yang dicampur dengan kismis, camilan manis yang lezat.",
+    "ingredients": [
+      {
+        "id": 28,
+        "name": "Cokelat",
+        "image": "https://asset-2.tstatic.net/belitung/foto/bank/images/coklat-batangan_20180921_202716.jpg"
+      },
+      {
+        "id": 29,
+        "name": "Kismis",
+        "image": "https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2022/11/14064510/bernutrisi-kenali-manfaat-kismis-kuning-bagi-kesehatan-halodoc.jpg"
+      }
+    ],
+    "image": "https://mcgrocer.com/cdn/shop/files/assorted-chocolate-raisins-350g-39125636448494.jpg?v=1736304210"
+  }
+]
