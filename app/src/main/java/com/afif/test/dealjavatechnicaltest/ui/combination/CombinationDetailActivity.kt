@@ -33,7 +33,7 @@ class CombinationDetailActivity : AppCompatActivity() {
                 .autoplay(true)
                 .speed(1f)
                 .loop(true)
-                .source(DotLottieSource.Asset("lottie_cooking_failed.lottie")) // asset from the asset folder .json or .lottie
+                .source(DotLottieSource.Asset("lottie_cooking_failed.lottie"))
                 .playMode(Mode.BOUNCE)
                 .build()
             binding.lottieStatus.load(config)

@@ -1,7 +1,10 @@
 package com.afif.test.dealjavatechnicaltest.ui.combination
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -10,7 +13,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import com.afif.test.dealjavatechnicaltest.R
 import com.afif.test.dealjavatechnicaltest.adapter.IngredientCombineAdapter
 import com.afif.test.dealjavatechnicaltest.data.firebase.IngredientEntity
 import com.afif.test.dealjavatechnicaltest.data.firebase.RecipeEntity
@@ -20,6 +22,9 @@ import com.afif.test.dealjavatechnicaltest.utils.Resource
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.lottiefiles.dotlottie.core.model.Config
+import com.lottiefiles.dotlottie.core.util.DotLottieSource
+import com.lottiefiles.dotlottie.core.widget.DotLottieAnimation
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import java.io.IOException
@@ -47,7 +52,6 @@ class CombinationActivity : AppCompatActivity() {
         binding.btnCombine.setOnClickListener {
             handleCombine()
         }
-
     }
 
     private fun setupRvIngredient() {
@@ -150,17 +154,59 @@ class CombinationActivity : AppCompatActivity() {
             combinationViewModel.updateIngredientAmount(ingredient1)
             combinationViewModel.updateIngredientAmount(ingredient2)
 
-            // Pindah ke CombinationDetailActivity dengan data resep
-            val intent = Intent(this, CombinationDetailActivity::class.java).apply {
-                putExtra("recipe", matchedRecipe)
-            }
-            startActivity(intent)
+            val cookingAnimation = DotLottieAnimation(this)
+            val giftConfig = Config.Builder()
+                .autoplay(true)
+                .speed(1f)
+                .loop(false) // Play once
+                .source(DotLottieSource.Asset("lottie_cooking.lottie")) // Load your gift opening animation
+                .build()
+            cookingAnimation.load(giftConfig)
+
+            // Create a new dialog to show the animation
+            val animationDialog = Dialog(this)
+            animationDialog.setContentView(cookingAnimation)
+            animationDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+            animationDialog.setCancelable(false) // Prevent dismissing the dialog
+            animationDialog.show()
+
+            // Use a Handler to delay the transition to IngredientOpenActivity
+            Handler(Looper.getMainLooper()).postDelayed({
+                animationDialog.dismiss() // Dismiss the animation dialog
+                val intent = Intent(this, CombinationDetailActivity::class.java).apply {
+                    putExtra("recipe", matchedRecipe)
+                }
+                startActivity(intent)
+                finish()
+            }, 5000)
+
         } else {
             // Jika kombinasi tidak ditemukan
-            val intent = Intent(this, CombinationDetailActivity::class.java).apply {
-                putExtra("failed", true)
-            }
-            startActivity(intent)
+            val cookingAnimation = DotLottieAnimation(this)
+            val giftConfig = Config.Builder()
+                .autoplay(true)
+                .speed(1f)
+                .loop(false) // Play once
+                .source(DotLottieSource.Asset("lottie_cooking.lottie")) // Load your gift opening animation
+                .build()
+            cookingAnimation.load(giftConfig)
+
+            // Create a new dialog to show the animation
+            val animationDialog = Dialog(this)
+            animationDialog.setContentView(cookingAnimation)
+            animationDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+            animationDialog.setCancelable(false) // Prevent dismissing the dialog
+            animationDialog.show()
+
+            // Use a Handler to delay the transition to IngredientOpenActivity
+            Handler(Looper.getMainLooper()).postDelayed({
+                animationDialog.dismiss() // Dismiss the animation dialog
+                val intent = Intent(this, CombinationDetailActivity::class.java).apply {
+                    putExtra("failed", true)
+                }
+                startActivity(intent)
+                finish()
+            }, 5000)
         }
     }
 
