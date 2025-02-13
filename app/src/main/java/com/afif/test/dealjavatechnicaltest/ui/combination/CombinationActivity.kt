@@ -20,6 +20,7 @@ import com.afif.test.dealjavatechnicaltest.databinding.ActivityCombinationBindin
 import com.afif.test.dealjavatechnicaltest.ui.ingredient.IngredientViewModel
 import com.afif.test.dealjavatechnicaltest.utils.Resource
 import com.bumptech.glide.Glide
+import com.dotlottie.dlplayer.Mode
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.lottiefiles.dotlottie.core.model.Config
@@ -55,9 +56,10 @@ class CombinationActivity : AppCompatActivity() {
     }
 
     private fun setupRvIngredient() {
-        ingredientCombineAdapter = IngredientCombineAdapter(this, emptyList()) { selectedIngredient ->
-            updateSelectedIngredients(selectedIngredient)
-        }
+        ingredientCombineAdapter =
+            IngredientCombineAdapter(this, emptyList()) { selectedIngredient ->
+                updateSelectedIngredients(selectedIngredient)
+            }
         binding.rvIngredientCombination.apply {
             layoutManager =
                 GridLayoutManager(this@CombinationActivity, 3)
@@ -108,21 +110,31 @@ class CombinationActivity : AppCompatActivity() {
                     is Resource.Loading -> {
                         showLoading()
                     }
+
                     is Resource.Success -> {
                         hideLoading()
                         resource.data?.let { ingredients ->
                             // Update the adapter with the new list of ingredients
-                            ingredientCombineAdapter = IngredientCombineAdapter(this@CombinationActivity, ingredients) { selectedIngredient ->
+                            ingredientCombineAdapter = IngredientCombineAdapter(
+                                this@CombinationActivity,
+                                ingredients
+                            ) { selectedIngredient ->
                                 updateSelectedIngredients(selectedIngredient)
                             }
                             binding.rvIngredientCombination.adapter = ingredientCombineAdapter
                             Log.d(">>Ingredients", ingredients.toString())
                         }
                     }
+
                     is Resource.Error -> {
                         hideLoading()
-                        Toast.makeText(this@CombinationActivity, resource.message, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@CombinationActivity,
+                            resource.message,
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
+
                     else -> Unit
                 }
             }
@@ -160,15 +172,17 @@ class CombinationActivity : AppCompatActivity() {
                 .speed(1f)
                 .loop(false) // Play once
                 .source(DotLottieSource.Asset("lottie_cooking.lottie")) // Load your gift opening animation
+                .playMode(Mode.FORWARD)
                 .build()
             cookingAnimation.load(giftConfig)
 
-            // Create a new dialog to show the animation
+            // a new dialog to show the animation
             val animationDialog = Dialog(this)
             animationDialog.setContentView(cookingAnimation)
             animationDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
             animationDialog.setCancelable(false) // Prevent dismissing the dialog
             animationDialog.show()
+            cookingAnimation.stop()
 
             // Use a Handler to delay the transition to IngredientOpenActivity
             Handler(Looper.getMainLooper()).postDelayed({
@@ -197,6 +211,7 @@ class CombinationActivity : AppCompatActivity() {
             animationDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
             animationDialog.setCancelable(false) // Prevent dismissing the dialog
             animationDialog.show()
+            cookingAnimation.stop()
 
             // Use a Handler to delay the transition to IngredientOpenActivity
             Handler(Looper.getMainLooper()).postDelayed({

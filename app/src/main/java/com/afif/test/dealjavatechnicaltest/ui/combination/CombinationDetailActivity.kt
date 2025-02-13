@@ -4,9 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.afif.test.dealjavatechnicaltest.R
 import com.afif.test.dealjavatechnicaltest.data.firebase.RecipeEntity
 import com.afif.test.dealjavatechnicaltest.databinding.ActivityCombinationDetailBinding
 import com.bumptech.glide.Glide
@@ -33,7 +30,7 @@ class CombinationDetailActivity : AppCompatActivity() {
                 .autoplay(true)
                 .speed(1f)
                 .loop(true)
-                .source(DotLottieSource.Asset("lottie_cooking_failed.lottie"))
+                .source(DotLottieSource.Asset("lottie_cooking_failed.json"))
                 .playMode(Mode.BOUNCE)
                 .build()
             binding.lottieStatus.load(config)
@@ -47,7 +44,7 @@ class CombinationDetailActivity : AppCompatActivity() {
                 .autoplay(true)
                 .speed(1f)
                 .loop(true)
-                .source(DotLottieSource.Asset("lottie_cooking_success.lottie")) // asset from the asset folder .json or .lottie
+                .source(DotLottieSource.Asset("lottie_cooking_success.json")) // asset from the asset folder .json or .lottie
                 .playMode(Mode.BOUNCE)
                 .build()
             binding.lottieStatus.load(config)
