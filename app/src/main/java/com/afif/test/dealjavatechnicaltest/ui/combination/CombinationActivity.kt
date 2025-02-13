@@ -3,6 +3,7 @@ package com.afif.test.dealjavatechnicaltest.ui.combination
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
@@ -101,9 +102,10 @@ class CombinationActivity : AppCompatActivity() {
             viewModel.addIngredient.collectLatest { resource ->
                 when (resource) {
                     is Resource.Loading -> {
-                        // Show loading indicator if needed
+                        showLoading()
                     }
                     is Resource.Success -> {
+                        hideLoading()
                         resource.data?.let { ingredients ->
                             // Update the adapter with the new list of ingredients
                             ingredientCombineAdapter = IngredientCombineAdapter(this@CombinationActivity, ingredients) { selectedIngredient ->
@@ -114,12 +116,10 @@ class CombinationActivity : AppCompatActivity() {
                         }
                     }
                     is Resource.Error -> {
-                        // Handle error (e.g., show a toast)
+                        hideLoading()
                         Toast.makeText(this@CombinationActivity, resource.message, Toast.LENGTH_SHORT).show()
                     }
-                    else -> {
-                        // Handle unspecified state if needed
-                    }
+                    else -> Unit
                 }
             }
         }
@@ -179,5 +179,18 @@ class CombinationActivity : AppCompatActivity() {
         return gson.fromJson(json, listType)
     }
 
+    private fun showLoading() {
+        binding.apply {
+            shimmerFrame.visibility = View.VISIBLE
+            shimmerFrame.startShimmer()
+        }
+    }
+
+    private fun hideLoading() {
+        binding.apply {
+            shimmerFrame.stopShimmer()
+            shimmerFrame.visibility = View.GONE
+        }
+    }
 
 }

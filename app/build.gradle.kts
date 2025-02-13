@@ -44,6 +44,9 @@ android {
 
 dependencies {
 
+    // Shimmer Effect
+    implementation(libs.shimmer)
+
     //Dagger hilt
     implementation("com.google.dagger:hilt-android:2.50")
     kapt("com.google.dagger:hilt-compiler:2.50")

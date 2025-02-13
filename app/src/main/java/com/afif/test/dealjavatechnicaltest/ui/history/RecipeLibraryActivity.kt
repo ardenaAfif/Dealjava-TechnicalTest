@@ -2,6 +2,7 @@ package com.afif.test.dealjavatechnicaltest.ui.history
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
@@ -37,15 +38,16 @@ class RecipeLibraryActivity : AppCompatActivity() {
             viewModel.recipes.collectLatest { resource ->
                 when (resource) {
                     is Resource.Loading -> {
-                        // Show loading indicator if needed
+                        showLoading()
                     }
                     is Resource.Success -> {
+                        hideLoading()
                         val recipes = resource.data ?: emptyList()
                         recipeLibraryAdapter.differ.submitList(recipes)
                         Log.d(">>Recipe", "Recipes: $recipes")
                     }
                     is Resource.Error -> {
-                        // Handle error (e.g., show a toast)
+                        hideLoading()
                         Toast.makeText(this@RecipeLibraryActivity, resource.message, Toast.LENGTH_SHORT).show()
                     }
                     else -> Unit
@@ -59,6 +61,20 @@ class RecipeLibraryActivity : AppCompatActivity() {
         binding.rvRecipeLibrary.apply {
             layoutManager = LinearLayoutManager(this@RecipeLibraryActivity)
             adapter = recipeLibraryAdapter
+        }
+    }
+
+    private fun showLoading() {
+        binding.apply {
+            shimmerFrame.visibility = View.VISIBLE
+            shimmerFrame.startShimmer()
+        }
+    }
+
+    private fun hideLoading() {
+        binding.apply {
+            shimmerFrame.stopShimmer()
+            shimmerFrame.visibility = View.GONE
         }
     }
 }
