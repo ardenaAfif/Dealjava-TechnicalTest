@@ -163,8 +163,7 @@ class CombinationActivity : AppCompatActivity() {
             combinationViewModel.saveRecipeToFirebase(matchedRecipe)
 
             // Kurangi jumlah bahan di Firebase
-            combinationViewModel.updateIngredientAmount(ingredient1)
-            combinationViewModel.updateIngredientAmount(ingredient2)
+            combinationViewModel.updateIngredientAmount(listOf(ingredient1, ingredient2))
 
             val cookingAnimation = DotLottieAnimation(this)
             val giftConfig = Config.Builder()
@@ -180,7 +179,7 @@ class CombinationActivity : AppCompatActivity() {
             val animationDialog = Dialog(this)
             animationDialog.setContentView(cookingAnimation)
             animationDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-            animationDialog.setCancelable(false) // Prevent dismissing the dialog
+            animationDialog.setCancelable(false)
             animationDialog.show()
             cookingAnimation.stop()
 

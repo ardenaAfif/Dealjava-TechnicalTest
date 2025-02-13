@@ -20,25 +20,26 @@ class IngredientViewModel @Inject constructor(
     val addIngredient: StateFlow<Resource<List<IngredientEntity>>> = _addIngredient
 
     fun addOrUpdateIngredients(ingredients: List<IngredientEntity>) {
-        _addIngredient.value = Resource.Loading()
-        val updatedIngredients = mutableListOf<IngredientEntity>()
+        viewModelScope.launch {
+            _addIngredient.value = Resource.Loading()
+            val updatedIngredients = mutableListOf<IngredientEntity>()
 
-        for (ingredient in ingredients) {
-            firebaseClient.getIngredientById(ingredient.id) { existingIngredient ->
+            for (ingredient in ingredients) {
+                val existingIngredient = firebaseClient.getIngredientById(ingredient.id)
+
                 if (existingIngredient != null) {
+                    // Update amount
                     val updatedIngredient = existingIngredient.copy(amount = existingIngredient.amount + 1)
                     firebaseClient.updateIngredient(updatedIngredient)
                     updatedIngredients.add(updatedIngredient)
                 } else {
+                    // Add new ingredient
                     val newIngredient = ingredient.copy(amount = 1)
                     firebaseClient.addIngredient(newIngredient)
                     updatedIngredients.add(newIngredient)
                 }
-
-                if (updatedIngredients.size == ingredients.size) {
-                    _addIngredient.value = Resource.Success(updatedIngredients)
-                }
             }
+            _addIngredient.value = Resource.Success(updatedIngredients)
         }
     }
 

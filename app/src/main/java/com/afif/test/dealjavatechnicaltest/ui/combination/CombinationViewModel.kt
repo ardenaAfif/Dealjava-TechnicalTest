@@ -21,6 +21,9 @@ class CombinationViewModel @Inject constructor(
     private val _addCombinationIngredient = MutableStateFlow<Resource<List<RecipeEntity>>>(Resource.Unspecified())
     val addCombinationIngredient: StateFlow<Resource<List<RecipeEntity>>> = _addCombinationIngredient
 
+    private val _updateIngredient = MutableStateFlow<Resource<List<IngredientEntity>>>(Resource.Unspecified())
+    val updateIngredient: StateFlow<Resource<List<IngredientEntity>>> = _updateIngredient
+
     fun saveRecipeToFirebase(recipe: RecipeEntity) {
         viewModelScope.launch {
             try {
@@ -32,17 +35,28 @@ class CombinationViewModel @Inject constructor(
         }
     }
 
-    fun updateIngredientAmount(ingredient: IngredientEntity) {
+    fun updateIngredientAmount(ingredients: List<IngredientEntity>) {
+        val updatedIngredients = mutableListOf<IngredientEntity>()
+
         viewModelScope.launch {
-            firebaseClient.getIngredientById(ingredient.id) { existingIngredient ->
+            for (ingredient in ingredients) {
+                val existingIngredient = firebaseClient.getIngredientById(ingredient.id)
+
                 if (existingIngredient != null) {
-                    val newAmount = existingIngredient.amount - 1
-                    if (newAmount >= 0) {
-                        firebaseClient.updateIngredient(existingIngredient.copy(amount = newAmount))
+                    if (existingIngredient.amount > 1) {
+                        // Kurangi amount sebanyak 1
+                        val updatedIngredient =
+                            existingIngredient.copy(amount = existingIngredient.amount - 1)
+                        firebaseClient.updateIngredient(updatedIngredient)
+                        updatedIngredients.add(updatedIngredient)
+                    } else if (existingIngredient.amount == 1) {
+                        // Hapus ingredient jika amount = 1
+                        firebaseClient.deleteIngredient(existingIngredient)
                     }
                 }
             }
         }
+        _updateIngredient.value = Resource.Success(updatedIngredients)
     }
 
 }

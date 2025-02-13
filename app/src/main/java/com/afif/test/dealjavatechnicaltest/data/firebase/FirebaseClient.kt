@@ -18,26 +18,29 @@ class FirebaseClient {
             .update("amount", ingredient.amount)
     }
 
-    fun getIngredientById(id: Int, callback: (IngredientEntity?) -> Unit) {
-        firestore.collection("ingredientEntity").document(id.toString()).get()
-            .addOnSuccessListener { document ->
-                if (document.exists()) {
-                    val ingredient = document.toObject(IngredientEntity::class.java)
-                    callback(ingredient)
-                } else {
-                    callback(null)
-                }
+    fun deleteIngredient(ingredient: IngredientEntity) {
+        firestore.collection("ingredientEntity").document(ingredient.id.toString()).delete()
+    }
+
+    suspend fun getIngredientById(id: Int): IngredientEntity? {
+        return try {
+            val document = firestore.collection("ingredientEntity").document(id.toString()).get().await()
+            if (document.exists()) {
+                document.toObject(IngredientEntity::class.java)
+            } else {
+                null
             }
-            .addOnFailureListener { exception ->
-                Log.w("FirebaseClient", "Error getting document", exception)
-                callback(null)
-            }
+        } catch (e: Exception) {
+            Log.e("FirebaseClient", "Error getting ingredient", e)
+            null
+        }
     }
 
     suspend fun getIngredients(): QuerySnapshot {
         return firestore.collection("ingredientEntity")
             .get().await()
     }
+
 
     fun addRecipe(recipe: RecipeEntity) {
         firestore.collection("recipeEntity").document(recipe.id.toString()).set(recipe)
